@@ -2,4 +2,15 @@
 
 {% block content %}
 
+{% for topic in custom_topics_name %}
+<div class="card" style="width: 18rem;">
+    <img src="{{ topic.image.url }}" class="card-img-top" alt="{{ topic.subject }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ topic.subject }}</h5>
+      <p class="card-text"> {{ topic.description }}</p>
+      <a href="{% url 'topic_details' slug=topic.slug %}" class="btn btn-primary">Learn more</a>
+    </div>
+  </div>
+{% endfor %}
+
 {% endblock %}

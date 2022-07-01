@@ -17,3 +17,18 @@ class HomeTopics(View):
         }
 
         return render(request, template, context)
+
+
+class TopicDetails(View):
+    """Topic details class based view"""
+
+    def get(self, request, *args, **kwargs):
+        """Topic details GET request"""
+        topic = Topic.objects.get(slug=kwargs['slug'])
+        template = 'skeleton/details.html'
+
+        context = {
+            'topic': topic,
+        }
+
+        return render(request, template, context)
