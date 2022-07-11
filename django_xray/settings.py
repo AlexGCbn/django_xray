@@ -49,8 +49,8 @@ INSTALLED_APPS = [
 
     # Custom apps
     'home',
-    'skeleton',
-    'skeleton_alt',
+    'django_basics',
+    'django_more_complex',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

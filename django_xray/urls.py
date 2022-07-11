@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', include('home.urls')),
-    path('skeleton/', include('skeleton.urls')),
-    path('skeleton_alt/', include('skeleton_alt.urls')),
+    path('django_basics/', include('django_basics.urls')),
+    path('django_more_complex/', include('django_more_complex.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

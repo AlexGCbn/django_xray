@@ -8,7 +8,7 @@ class HomeTopics(View):
 
     def get(self, request):
         """GET request for Home page"""
-        template = 'skeleton/home.html'
+        template = 'django_basics/basics.html'
 
         topics = Topic.objects.all()
 
@@ -25,7 +25,7 @@ class TopicDetails(View):
     def get(self, request, *args, **kwargs):
         """Topic details GET request"""
         topic = Topic.objects.get(slug=kwargs['slug'])
-        template = 'skeleton/details.html'
+        template = 'django_basic/details.html'
 
         context = {
             'topic': topic,
