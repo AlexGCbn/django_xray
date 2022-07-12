@@ -25,7 +25,7 @@ class TopicDetails(View):
     def get(self, request, *args, **kwargs):
         """Topic details GET request"""
         topic = Topic.objects.get(slug=kwargs['slug'])
-        template = 'django_basic/details.html'
+        template = 'django_basics/details.html'
 
         context = {
             'topic': topic,
