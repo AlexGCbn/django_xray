@@ -1,0 +1,1 @@
+[{"model": "django_basics.topic", "pk": 1, "fields": {"subject": "Django Basics", "slug": "django-basics", "description": "<p>Dive into the basics of Django with an overhead view of the structures and patterns.&nbsp;</p>", "image": "blank_tradingcard.jpg"}}]

@@ -5,3 +5,24 @@ header {
 nav {
     height: 100%;
 }
+
+.main-content-buttons.btn.active {
+    background-color: #ffe4c499;
+    transition: all .3s ease-in-out;
+}
+
+.main-content-buttons.btn.active:hover {
+    background-color: rgba(66, 58, 47, 0.9);
+    color: antiquewhite;
+}
+
+.topic-card {
+    background-color: rgba(255, 228, 196, .6);
+    padding: 2.4vmin;
+    margin: 2vmin 0 2vmin 0;
+    border-radius: 8px;
+}
+
+.topic-card p {
+    width: 700px;
+}

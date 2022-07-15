@@ -23,9 +23,24 @@
         </pre>
       </div>
     <div class="row">
-        <div class="col">
-            {{ topic.description | safe}}
+        <div class="col d-flex justify-content-center align-items-center p-5">
+            <h1>{{ topic.description | safe}}</h1>
         </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {% for topic in subtopics %}
+        <div class="topic-card d-flex flex-column justify-content-center align-items-center">
+          <h2>{{ topic.heading }}</h2>
+          <p>{{ topic.paragraph | safe }}</p>
+            {% if "placeholder" in topic.image.url %}
+            <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" height="400" width="400">
+            {% else %}
+            <img src=" {{ topic.image.url }}" height="400" width="400">
+            {% endif %}
+        </div>
+        {% endfor %}
+      </div>
     </div>
 </div>
 
