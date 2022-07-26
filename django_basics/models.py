@@ -17,7 +17,7 @@ class SubTopic(models.Model):
 
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name="sub_topics")  # noqa E501
     heading = models.CharField(max_length=75, null=True, blank=True)
-    paragraph = models.TextField(max_length=2000, null=True, blank=True)
+    paragraph = models.TextField(max_length=3000, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, default='placeholder')
 
     def __str__(self):

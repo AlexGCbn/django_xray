@@ -6,9 +6,9 @@
   <div class="code-row bg-dark text-light p-2">
     <h4>Context code in view:</h4>
     <p>
-    context = {
+      context = {
       'custom_topics_name': topics,
-    }
+      }
     </p>
     <h4>Context received from view:</h4>
     <p>
@@ -27,7 +27,11 @@
     {% for topic in custom_topics_name %}
     <div class="col-12 col-md-4">
       <div class="card" style="width: 18rem;">
+        {% if not topic.image %}
+        <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" height="400" width="400">
+        {% else %}
         <img src="{{ topic.image.url }}" class="card-img-top" alt="{{ topic.subject }}">
+        {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ topic.subject }}</h5>
           <a href="{% url 'topic_details' slug=topic.slug %}" class="btn btn-primary">Learn more</a>
