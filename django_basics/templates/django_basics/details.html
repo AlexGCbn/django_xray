@@ -38,7 +38,7 @@
           <h2>{{ topic.heading }}</h2>
           <p>{{ topic.paragraph | safe }}</p>
             {% if not "placeholder" in topic.image.url %}
-            <img src=" {{ topic.image.url }}" height="400" width="400">
+            <img src=" {{ topic.image.url }}">
             {% endif %}
         </div>
         {% endfor %}
