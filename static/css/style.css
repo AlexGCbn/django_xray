@@ -26,3 +26,14 @@ nav {
 .topic-card p {
     width: 700px;
 }
+
+.main-page-statement {
+    width: 50vw;
+    text-align: center;
+}
+
+@media screen and (min-width: 1300px) {
+    .main-page-statement {
+        width: 25vw;
+    }
+}
