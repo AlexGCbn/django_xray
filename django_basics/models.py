@@ -19,6 +19,7 @@ class SubTopic(models.Model):
     heading = models.CharField(max_length=75, null=True, blank=True)
     paragraph = models.TextField(max_length=3000, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, default='placeholder')
+    order_no = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.heading}'

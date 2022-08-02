@@ -12,5 +12,6 @@ class TopicAdmin(SummernoteModelAdmin):
 
 @admin.register(SubTopic)
 class SubTopicAdmin(SummernoteModelAdmin):
-    list_display = ('topic', 'heading', 'paragraph', 'image')
+    list_display = ('topic', 'heading', 'paragraph', 'image', 'order_no')
     summernote_fields = ('paragraph')
+    ordering = ('topic', 'order_no', )

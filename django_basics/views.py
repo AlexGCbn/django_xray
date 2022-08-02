@@ -25,7 +25,7 @@ class TopicDetails(View):
     def get(self, request, *args, **kwargs):
         """Topic details GET request"""
         topic = Topic.objects.get(slug=kwargs['slug'])  # pylint: disable=no-member  # noqa E501
-        subtopics = topic.sub_topics.all().order_by('id')
+        subtopics = topic.sub_topics.all().order_by('order_no')
         template = 'django_basics/details.html'
 
         context = {
