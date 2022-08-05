@@ -37,13 +37,14 @@
         <div class="topic-card d-flex flex-column justify-content-center align-items-center">
           <h2>{{ topic.heading }}</h2>
           <p>{{ topic.paragraph | safe }}</p>
+          {% if topic.image %}
             {% if not "placeholder" in topic.image.url %}
             <img src=" {{ topic.image.url }}">
             {% endif %}
+          {% endif %}
         </div>
         {% endfor %}
       </div>
     </div>
 </div>
-
 {% endblock %}
