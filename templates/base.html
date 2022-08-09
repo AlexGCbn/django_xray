@@ -12,6 +12,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+    integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous" />
 
     <title>Django X-Ray</title>
 </head>
@@ -43,6 +46,27 @@
         </nav>
     </header>
     <div class="container-fluid pt-5">
+        <div class="row mb-3 sticky-top">
+            <div class="col-12">
+              <div class="card text-center">
+                <div class="card-header">
+                  <ul class="flex flex-direction-row align-items-center justify-content-center nav nav-tabs card-header-tabs">
+                    {% for topic in topics_in_context %}
+                    <li class="nav-item">
+                      <a class="nav-link {% if topic.slug in request.path %} active {% endif %}" href="{% url 'topic_details' slug=topic.slug %}">{{ topic.subject }}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ topic.subject }}</h5>
+                    {% for subtopic in topic.sub_topics.all %}
+                    <a class="card-text" href="#{{ subtopic.heading|lower }}">{{ subtopic.heading }}</a>
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
         {% block content %}
         <!-- Template content simulated here -->
         {% endblock %}
