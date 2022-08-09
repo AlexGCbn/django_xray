@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <form action="" method="post">
+                {{ form|crispy }}
+                {% csrf_token %}
+                <div class="flex flex-direction-row">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <a href="{% url 'topic_details' slug=subtopic.topic.slug %}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

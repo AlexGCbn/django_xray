@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.views import View
-from .models import Topic
+from django.views.generic.edit import UpdateView
+
+from .models import Topic, SubTopic
 
 
 class HomeTopics(View):
@@ -34,3 +36,23 @@ class TopicDetails(View):
         }
 
         return render(request, template, context)
+
+
+class SubTopicUpdateView(UpdateView):
+    """
+    Allow update of SubTopic from frontend
+    """
+    model = SubTopic
+    fields = [
+        "heading",
+        "paragraph",
+        "image",
+        "order_no"
+    ]
+
+    def get_success_url(self) -> str:
+        """
+        Returns url to use if edit is successful
+        """
+        slug = self.object.topic.slug
+        return reverse('topic_details', args=[slug])
