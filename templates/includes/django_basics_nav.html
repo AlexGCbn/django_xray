@@ -1,0 +1,26 @@
+<div class="row mb-3 sticky-top">
+    <div class="col-12">
+      <div class="card text-center">
+        <div class="card-header">
+          <ul class="flex flex-direction-row align-items-center justify-content-center nav nav-tabs card-header-tabs">
+            {% for topic in topics_in_context %}
+            <li class="nav-item">
+              <a class="nav-link {% if topic.slug in request.path %} active {% endif %}" href="{% url 'topic_details' slug=topic.slug %}">{{ topic.subject }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ topic.subject }}</h5>
+            {% block content %}
+            <!-- Template content simulated here -->
+            {% endblock %}
+        </div>
+        <div class="card-footer text-muted">
+            {% for subtopic in topic.sub_topics.all %}
+                <a {% if subtopic.heading|lower in request.path %} class="active" {% endif %} href="#{{ subtopic.heading|lower }}">{{ subtopic.heading }}</a>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+</div>

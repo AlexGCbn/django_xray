@@ -1,10 +1,36 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 header {
-    height: 16vmin;
+    height: 8vmin;
 }
 
 nav {
     height: 100%;
 }
+
+.ci-orange {
+    color:  #E84610;
+}
+
+a {
+    text-decoration: none;
+    padding: .6vmin;
+    margin: .2vmin;
+    color:rgba(66, 58, 47, 0.9);
+    border: 2px solid rgba(66, 58, 47, 0.9);
+    border-radius: .8vmin;
+}
+
+a .active {
+    border-left: 2px solid rgba(66, 58, 47, 0.9);
+    border-top: 2px solid rgba(66, 58, 47, 0.9);
+    border-right: 2px solid rgba(66, 58, 47, 0.9);
+    border-top-left-radius: .8vmin;
+    border-top-right-radius: .8vmin;
+}
+
 h1, h2 {
     text-align: center;
 }
