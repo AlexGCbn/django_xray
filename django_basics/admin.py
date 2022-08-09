@@ -8,6 +8,7 @@ class TopicAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('subject',)}
     list_display = ('subject', 'description')
     summernote_fields = ('description')
+    ordering = ('order_no', )
 
 
 @admin.register(SubTopic)
