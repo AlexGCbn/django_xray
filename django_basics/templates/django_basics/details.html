@@ -33,13 +33,18 @@
     </div>
     <div class="row">
       <div class="col">
-        {% for topic in subtopics %}
+        {% for subtopic in subtopics %}
         <div class="topic-card d-flex flex-column justify-content-center align-items-center">
-          <h2>{{ topic.heading }}</h2>
-          <p>{{ topic.paragraph | safe }}</p>
-          {% if topic.image %}
-            {% if not "placeholder" in topic.image.url %}
-            <img src=" {{ topic.image.url }}">
+          {% if request.user.is_authenticated %} 
+            {% if request.user.is_superuser %}
+            <a href="{% url 'edit_subtopic' subtopic.id topic.slug %}" class="btn btn-warning edit-btn align-self-end" title="edit subtopic"><i class="fa-solid fa-pen-to-square"></i></a>
+            {% endif %}
+          {% endif %}
+          <h2 id="{{ subtopic.heading|lower }}" class="subtopic-header">{{ subtopic.heading }}</h2>
+          <p>{{ subtopic.paragraph | safe }}</p>
+          {% if subtopic.image %}
+            {% if not "placeholder" in subtopic.image.url %}
+            <img src=" {{ subtopic.image.url }}">
             {% endif %}
           {% endif %}
         </div>

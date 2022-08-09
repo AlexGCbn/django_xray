@@ -5,6 +5,15 @@ header {
 nav {
     height: 100%;
 }
+h1, h2 {
+    text-align: center;
+}
+
+.subtopic-header {
+    padding: 1.4vmin;
+    border: 1px solid rgba(66, 58, 47, 0.9);
+    border-radius: .8vmin;
+}
 
 .main-content-buttons.btn.active {
     background-color: #ffe4c499;
@@ -25,6 +34,12 @@ nav {
 
 .topic-card p {
     width: 700px;
+}
+
+.edit-btn>i {
+    color: antiquewhite;
+    height: 100%;
+    width: 100%;
 }
 
 .main-page-statement {
