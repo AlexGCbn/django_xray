@@ -46,35 +46,38 @@
         </nav>
     </header>
     <div class="container-fluid pt-5">
-        
-
-        
         <div class="row mb-3">
             <div class="col-12">
               <div class="card text-center">
-                <div class="sticky-top bg-body">
-                    <div class="card-header sticky-top">
-                      <ul class="flex flex-direction-row align-items-center justify-content-center nav nav-tabs card-header-tabs">
-                        {% if 'django_basics' in request.path %}
-                            {% for topic in topics_in_context %}
-                            <li class="nav-item">
-                                <a class="nav-link {% if topic.slug in request.path %} active {% endif %}" href="{% url 'topic_details' slug=topic.slug %}">{{ topic.subject }}</a>
-                            </li>
-                            {% endfor %}
-                        {% endif %}
-                      </ul>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mb-3">{{ topic.subject }}</h5>
-                        {% for subtopic in topic.sub_topics.all %}
-                        <a class="{% if subtopic.heading|lower in request.path %} active {% endif %} subtopic-link" href="#{{ subtopic.heading|lower }}">{{ subtopic.heading }}</a>
+                <div class="card-header sticky-top bg-body">
+                    <ul class="d-flex flex-row align-items-center justify-content-center nav nav-tabs card-header-tabs">
+                    {% if 'django_basics' in request.path %}
+                        {% for topic in topics_in_context %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if topic.slug in request.path %} active {% endif %}" href="{% url 'topic_details' slug=topic.slug %}">{{ topic.subject }}</a>
+                        </li>
                         {% endfor %}
-                    </div>
+                    {% endif %}
+                    </ul>
                 </div>
-                <div class="card-body">
-                    {% block content %}
-                    <!-- Template content simulated here -->
-                    {% endblock %}
+                <div class="row">
+                    <div class="col-2">
+                        <div class="col-2 card-body d-flex flex-column position-fixed subtopic-link-wrapper">
+                            <h5 class="card-title mb-3">{{ topic.subject }}</h5>
+                            <div class="d-flex flex-column">
+                                {% for subtopic in topic.sub_topics.all %}
+                                <span class="subtopic-link m-3 pt-2 pb-2" data-topic="{{ subtopic.heading|lower }}">{{ subtopic.heading }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="card-body">
+                            {% block content %}
+                            <!-- Template content simulated here -->
+                            {% endblock %}
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer text-muted">
                 </div>
@@ -90,21 +93,43 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     
     <script>
-        function scrollToTargetAdjusted(){
+        const removeActiveClass = (elements) => {
+            for (let i=0; i<elements.length; i++) {
+                    if (elements[i].classList.contains('active')) elements[i].classList.toggle('active');
+                }
+        }
+        const scrollToTargetAdjusted = () => {
+            document.addEventListener('click', (event)=> {
+                if (!event.target.classList.contains('subtopic-link')) {
+                    removeActiveClass(elements);
+                }
+            })
+            // document.addEventListener('scroll', (event)=> {
+            //     removeActiveClass(elements);
+            // })
             let elements = Array.from(document.querySelectorAll('.subtopic-link'));
             if (elements) {
                 elements.forEach(element => element.addEventListener('click', ()=> {
-                    let topicCards = Array.from(document.querySelectorAll('.topic-card'));
-                    topicCards.forEach((topic) => {
-                        console.log("walawala")
-                        let headerOffset = 150;
-                        let elementPosition = topic.getBoundingClientRect().top;
-                        let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    for (let i=0; i<elements.length; i++) {
+                        if (elements[i].classList.contains('active')) elements[i].classList.toggle('active');
+                    }
+                    let subTopic = element.dataset.topic;
+                    let topicElem = document.getElementById(subTopic)
+                    let headerOffset = 210;
+                    let elementPosition = topicElem.getBoundingClientRect().top;
+                    let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    const scrolled = new Promise((resolve, reject) => {
                         window.scrollTo({
                             top: offsetPosition,
                             behavior: "smooth"
                         });
-                    })
+                        setTimeout(() => {
+                            resolve(element);
+                        }, 250)
+                    });
+                    scrolled.then((element) => {
+                        element.classList.add('active');
+                    });
                 }))
             }
         }
