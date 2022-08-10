@@ -2,10 +2,6 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-header {
-    height: 8vmin;
-}
-
 nav {
     height: 100%;
 }
@@ -14,21 +10,32 @@ nav {
     color:  #E84610;
 }
 
-a {
+.subtopic-link-wrapper {
+    max-width: 100%;
+}
+
+.subtopic-link {
+    font-size: .8rem;
+    position: relative;
     text-decoration: none;
     padding: .6vmin;
-    margin: .2vmin;
     color:rgba(66, 58, 47, 0.9);
     border: 2px solid rgba(66, 58, 47, 0.9);
     border-radius: .8vmin;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
 }
 
-a .active {
+.subtopic-link.active {
+    background-color: rgba(255, 228, 196, 1);
     border-left: 2px solid rgba(66, 58, 47, 0.9);
     border-top: 2px solid rgba(66, 58, 47, 0.9);
     border-right: 2px solid rgba(66, 58, 47, 0.9);
     border-top-left-radius: .8vmin;
-    border-top-right-radius: .8vmin;
+    border-bottom-left-radius: .8vmin;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transform: translateX(18.4vmin);
 }
 
 h1, h2 {
@@ -39,6 +46,7 @@ h1, h2 {
     padding: 1.4vmin;
     border: 1px solid rgba(66, 58, 47, 0.9);
     border-radius: .8vmin;
+    transition: all .6s ease-in-out;
 }
 
 .main-content-buttons.btn.active {
@@ -52,14 +60,15 @@ h1, h2 {
 }
 
 .topic-card {
-    background-color: rgba(255, 228, 196, .6);
+    background-color: rgba(255, 228, 196, 1);
     padding: 2.4vmin;
     margin: 2vmin 0 2vmin 0;
-    border-radius: 8px;
+    border: 2px solid rgba(66, 58, 47, 0.9);
+    border-radius: .8vmin;
 }
 
 .topic-card p {
-    width: 700px;
+    max-width: 90vw;
 }
 
 .edit-btn>i {
@@ -76,5 +85,45 @@ h1, h2 {
 @media screen and (min-width: 1300px) {
     .main-page-statement {
         width: 25vw;
+    }
+
+    .card-footer {
+        margin-bottom: 110px;
+    }
+
+    .subtopic-link.active {
+        z-index: 1;
+        padding-right: 40px;
+        border-right: 2px solid transparent;
+    }
+    
+    .subtopic-link.active::before {
+        z-index: 1;
+        content: '';
+        height: 20px;
+        width: 2vmin;
+        position: absolute;
+        right: -3px;
+        top: -20px;
+        background-color: transparent;
+        border-right: 2px solid rgba(66, 58, 47, 0.9);
+        border-bottom: 2px solid rgba(66, 58, 47, 0.9);
+        border-bottom-right-radius: .8vmin;
+        box-shadow: 3.5px 3.5px 0 3.5px rgba(255, 228, 196, 1);
+    }
+
+    .subtopic-link.active::after {
+        z-index: 1;
+        content: '';
+        height: 20px;
+        width: 2vmin;
+        position: absolute;
+        right: -3px;
+        bottom: -20px;
+        background-color: transparent;
+        border-right: 2px solid rgba(66, 58, 47, 0.9);
+        border-top: 2px solid rgba(66, 58, 47, 0.9);
+        border-top-right-radius: .8vmin;
+        box-shadow: 3.5px -3.5px 0 3.5px rgba(255, 228, 196, 1);
     }
 }
