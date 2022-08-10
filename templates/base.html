@@ -61,6 +61,7 @@
                 </div>
                 {% endif %}
                 {% if topic %}
+                    {% if 'update_topic' not in request.path %}
                 <div class="row">
                     <div class="col-2">
                         <div class="col-2 card-body d-flex flex-column position-fixed subtopic-link-wrapper">
@@ -82,6 +83,7 @@
                 </div>
                 <div class="card-footer text-muted">
                 </div>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>

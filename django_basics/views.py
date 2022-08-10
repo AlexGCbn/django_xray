@@ -38,6 +38,26 @@ class TopicDetails(View):
         return render(request, template, context)
 
 
+class TopicUpdateView(UpdateView):
+    """
+    Allow update of Topic from frontend
+    """
+    model = Topic
+    fields = [
+        "subject",
+        "description",
+        "image",
+        "order_no"
+    ]
+
+    def get_success_url(self) -> str:
+        """
+        Returns url to use if edit is successful
+        """
+        slug = self.object.topic.slug
+        return reverse('topic_details', args=[slug])
+
+
 class SubTopicUpdateView(UpdateView):
     """
     Allow update of SubTopic from frontend
