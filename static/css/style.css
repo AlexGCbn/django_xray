@@ -97,13 +97,13 @@ h1, h2 {
         border-right: 2px solid transparent;
     }
     
-    .subtopic-link.active::before {
+    .subtopic-link.active.connected::before {
         z-index: 1;
         content: '';
         height: 20px;
         width: 2vmin;
         position: absolute;
-        right: -3px;
+        right: 4px;
         top: -20px;
         background-color: transparent;
         border-right: 2px solid rgba(66, 58, 47, 0.9);
@@ -112,13 +112,13 @@ h1, h2 {
         box-shadow: 3.5px 3.5px 0 3.5px rgba(255, 228, 196, 1);
     }
 
-    .subtopic-link.active::after {
+    .subtopic-link.active.connected::after {
         z-index: 1;
         content: '';
         height: 20px;
         width: 2vmin;
         position: absolute;
-        right: -3px;
+        right: 4px;
         bottom: -20px;
         background-color: transparent;
         border-right: 2px solid rgba(66, 58, 47, 0.9);
