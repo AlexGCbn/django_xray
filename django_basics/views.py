@@ -54,8 +54,8 @@ class TopicUpdateView(UpdateView):
         """
         Returns url to use if edit is successful
         """
-        slug = self.object.topic.slug
-        return reverse('topic_details', args=[slug])
+        slug = self.object.slug
+        return reverse('django_basics', args=[slug])
 
 
 class SubTopicUpdateView(UpdateView):
