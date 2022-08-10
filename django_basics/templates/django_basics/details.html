@@ -44,7 +44,7 @@
           <p>{{ subtopic.paragraph | safe }}</p>
           {% if subtopic.image %}
             {% if not "placeholder" in subtopic.image.url %}
-            <img src=" {{ subtopic.image.url }}">
+            <img class="img-fluid" src=" {{ subtopic.image.url }}">
             {% endif %}
           {% endif %}
         </div>
