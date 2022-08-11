@@ -46,7 +46,7 @@
         {% if not topic.image %}
         <img class="img-fluid" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" height="400" width="400">
         {% else %}
-        <img class="img-fluid" src="{{ topic.image.url }}" class="card-img-top" alt="{{ topic.subject }}">
+        <img class="img-fluid" src="{{ topic.image.url }}" class="card-img-top" alt="{{ topic.subject }}" height="400" width="400">
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ topic.subject }}</h5>
