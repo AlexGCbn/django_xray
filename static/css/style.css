@@ -6,12 +6,51 @@ nav {
     height: 100%;
 }
 
+h1, h2 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
 .ci-orange {
     color:  #E84610;
 }
 
+.code-row {
+    text-align: start;
+}
+
+.code-block {
+    background-color: rgba(41, 35, 35, 0.8);
+    color:antiquewhite;
+    text-align: start;
+    padding: 2vmin;
+    border: solid 1px rgba(66, 58, 47, 0.9);
+    border-radius: .8vmin;
+}
+
 .subtopic-link-wrapper {
     max-width: 100%;
+    top: 28vh
+}
+
+#subtopic-container img {
+    border: 1px solid rgba(66, 58, 47, 0.9);
+    border-radius: .8vmin;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+#subtopic-container img.zoomed {
+    transform: scale(1.2) translateX(-10vmin);
+}
+
+.topic-card p,
+.topic-card li {
+    text-align: start;
 }
 
 .subtopic-link {
@@ -35,11 +74,7 @@ nav {
     border-bottom-left-radius: .8vmin;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    transform: translateX(18.4vmin);
-}
-
-h1, h2 {
-    text-align: center;
+    transform: translateX(.8vmin);
 }
 
 .subtopic-header {
@@ -87,43 +122,46 @@ h1, h2 {
         width: 25vw;
     }
 
+    .topic-card p {
+        max-width: 45vw;
+    }
+/* 
     .card-footer {
         margin-bottom: 110px;
-    }
+    } */
 
     .subtopic-link.active {
-        z-index: 1;
-        padding-right: 40px;
+        z-index: 2;
         border-right: 2px solid transparent;
     }
     
     .subtopic-link.active.connected::before {
         z-index: 1;
         content: '';
-        height: 20px;
+        height: .8vmin;
         width: 2vmin;
         position: absolute;
-        right: 4px;
-        top: -20px;
+        right: -3px;
+        top: -.8vmin;
         background-color: transparent;
         border-right: 2px solid rgba(66, 58, 47, 0.9);
         border-bottom: 2px solid rgba(66, 58, 47, 0.9);
         border-bottom-right-radius: .8vmin;
-        box-shadow: 3.5px 3.5px 0 3.5px rgba(255, 228, 196, 1);
+        box-shadow: .5px .5px 0 .5px rgba(255, 228, 196, 1);
     }
 
     .subtopic-link.active.connected::after {
         z-index: 1;
         content: '';
-        height: 20px;
+        height: .8vmin;
         width: 2vmin;
         position: absolute;
-        right: 4px;
-        bottom: -20px;
+        right: -3px;
+        bottom: -.8vmin;
         background-color: transparent;
         border-right: 2px solid rgba(66, 58, 47, 0.9);
         border-top: 2px solid rgba(66, 58, 47, 0.9);
         border-top-right-radius: .8vmin;
-        box-shadow: 3.5px -3.5px 0 3.5px rgba(255, 228, 196, 1);
+        box-shadow: .5px -.5px 0 .5px rgba(255, 228, 196, 1);
     }
 }

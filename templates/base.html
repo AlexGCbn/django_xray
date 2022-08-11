@@ -23,7 +23,7 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand ci-orange" href="{% url 'home' %}">Django X-Ray</a>
+                <a id="brand-nav" class="navbar-brand ci-orange" href="{% url 'home' %}">Django X-Ray</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,7 @@
                     <div class="col-10">
                         <div class="card-body">
                             {% block basics_details_content %}
-                                <!-- Template content simulated here -->
+                                <!-- Topic Details content rendered here -->
                             {% endblock %}
                         </div>
                     </div>
@@ -103,6 +103,16 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     
     <script>
+        /**
+         * Zoom images
+        */
+       let subTopicContainer = document.getElementById('subtopic-container')
+       if (subTopicContainer) {
+           subTopicContainer.addEventListener('click', function(e) {
+               const tgt = e.target;
+               tgt.classList.toggle('zoomed')
+           })
+       }
         const removeActiveClass = (elements) => {
             for (let i=0; i<elements.length; i++) {
                     if (elements[i].classList.contains('active')) elements[i].classList.toggle('active');
@@ -127,7 +137,7 @@
                     }
                     let subTopic = element.dataset.topic;
                     let topicElem = document.getElementById(subTopic)
-                    let headerOffset = 210;
+                    let headerOffset = 130;
                     let elementPosition = topicElem.getBoundingClientRect().top;
                     let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                     const scrolled = new Promise((resolve, reject) => {
@@ -154,6 +164,31 @@
             }
         }
         scrollToTargetAdjusted();
+
+        window.addEventListener('DOMContentLoaded', setup); 
+
+        function setup() {
+            const options = {
+                    root: document.getElementById('sutopic-container'),
+                    threshold: [ .8],
+                };
+            const elements = Array.from(document.querySelectorAll('.subtopic-link'));
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    const id = entry.target.dataset.card
+                    const link = document.querySelector(`[data-topic="${id}"]`)
+                    const intersecting = entry.isIntersecting
+                    if (intersecting) {
+                        removeActiveClass(elements);
+                        link.classList.add('active', 'connected');
+                    }
+                    else link.classList.remove('active', 'connected')
+                })
+            }, options);
+
+            const cards = document.querySelectorAll('.topic-card');
+            if(cards) cards.forEach(card => observer.observe(card));
+        }
     </script>
 </body>
 
