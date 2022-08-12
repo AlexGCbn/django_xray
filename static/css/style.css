@@ -33,7 +33,7 @@ a {
 
 .subtopic-link-wrapper {
     max-width: 100%;
-    top: 28vh
+    top: 16vh
 }
 
 #subtopic-container img {
@@ -49,6 +49,7 @@ a {
 }
 
 .topic-card p,
+.subtopic-p p,
 .topic-card li {
     text-align: start;
 }
@@ -70,16 +71,17 @@ a {
     border-left: 2px solid rgba(66, 58, 47, 0.9);
     border-top: 2px solid rgba(66, 58, 47, 0.9);
     border-right: 2px solid rgba(66, 58, 47, 0.9);
-    border-top-left-radius: .8vmin;
+    /* border-top-left-radius: .8vmin;
     border-bottom-left-radius: .8vmin;
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    transform: translateX(.8vmin);
+    border-bottom-right-radius: 0; */
+    border-radius: .8vmin;
+    transform: translateX(5vmin);
 }
 
 .subtopic-header {
-    padding: 1.4vmin;
-    border: 1px solid rgba(66, 58, 47, 0.9);
+    padding: .4vmin;
+    border-bottom: 1px solid rgba(66, 58, 47, 0.9);
     border-radius: .8vmin;
     transition: all .6s ease-in-out;
 }
@@ -130,7 +132,7 @@ a {
         margin-bottom: 110px;
     } */
 
-    .subtopic-link.active {
+    /* .subtopic-link.active {
         z-index: 2;
         border-right: 2px solid transparent;
     }
@@ -163,5 +165,5 @@ a {
         border-top: 2px solid rgba(66, 58, 47, 0.9);
         border-top-right-radius: .8vmin;
         box-shadow: .5px -.5px 0 .5px rgba(255, 228, 196, 1);
-    }
+    } */
 }
