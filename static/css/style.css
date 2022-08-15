@@ -33,7 +33,7 @@ a {
 
 .subtopic-link-wrapper {
     max-width: 100%;
-    top: 16vh
+    top: 30vh;
 }
 
 #subtopic-container img {
@@ -126,6 +126,10 @@ a {
 
     .topic-card p {
         max-width: 45vw;
+    }
+
+    .subtopic-link-wrapper {
+        top: 23vh;
     }
 /* 
     .card-footer {
