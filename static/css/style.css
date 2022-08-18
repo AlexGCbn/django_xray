@@ -18,6 +18,10 @@ a {
     color:  #E84610;
 }
 
+.card-header-tabs .nav-link {
+    color:rgba(41, 35, 35, 0.8);
+}
+
 .code-row {
     text-align: start;
 }
@@ -55,28 +59,31 @@ a {
 }
 
 .subtopic-link {
+    background-color: hsla(205, 22%, 65%, 0.189);
     font-size: .8rem;
     position: relative;
     text-decoration: none;
     padding: .6vmin;
     color:rgba(66, 58, 47, 0.9);
-    border: 2px solid rgba(66, 58, 47, 0.9);
+    border: 2px solid transparent;
     border-radius: .8vmin;
     transition: all .3s ease-in-out;
     cursor: pointer;
+    box-shadow: -1px -1px 2px hsla(205, 22%, 65%, 0.139),
+    1px 1px 2px hsla(206, 23%, 18%, 0.139),
+    -1px -1px 2px hsla(205, 22%, 65%, 0.139),
+    1px 1px 2px hsla(206, 23%, 18%, 0.139);
 }
 
 .subtopic-link.active {
-    background-color: rgba(255, 228, 196, 1);
-    border-left: 2px solid rgba(66, 58, 47, 0.9);
-    border-top: 2px solid rgba(66, 58, 47, 0.9);
-    border-right: 2px solid rgba(66, 58, 47, 0.9);
-    /* border-top-left-radius: .8vmin;
-    border-bottom-left-radius: .8vmin;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0; */
+    background-color: transparent;
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-bottom: 2px solid rgba(66, 58, 47, 0.9);
     border-radius: .8vmin;
     transform: translateX(5vmin);
+    box-shadow: none;
 }
 
 .subtopic-header {
@@ -97,11 +104,15 @@ a {
 }
 
 .topic-card {
-    background-color: rgba(255, 228, 196, 1);
+    background-color: hsla(205, 22%, 65%, 0.189);
     padding: 2.4vmin;
     margin: 2vmin 0 2vmin 0;
-    border: 2px solid rgba(66, 58, 47, 0.9);
+    border: 2px solid transparent;
     border-radius: .8vmin;
+    box-shadow: -1px -1px 2px hsla(205, 22%, 65%, 0.439),
+    1px 1px 2px hsla(206, 23%, 18%, 0.439),
+    -1px -1px 2px hsla(205, 22%, 65%, 0.439),
+    1px 1px 2px hsla(206, 23%, 18%, 0.439);
 }
 
 .topic-card p {
