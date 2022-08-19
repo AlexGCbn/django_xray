@@ -33,7 +33,7 @@ const scrollToTargetAdjusted = () => {
             toggleCSSclasses(elements, 'active', 'connected');
             let subTopic = element.dataset.topic;
             let topicElem = document.getElementById(subTopic);
-            let headerOffset = 130;
+            let headerOffset = 90;
             let elementPosition = topicElem.getBoundingClientRect().top;
             let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
             const scrolled = new Promise((resolve, reject) => {
@@ -67,7 +67,7 @@ function setup() {
      */
     const options = {
         threshold: 1,
-        rootMargin: "150px",
+        rootMargin: "-10px 0px 0px 0px",
     };
     const elements = Array.from(document.querySelectorAll('.subtopic-link'));
     const observer = new IntersectionObserver((entries, observer) => {
