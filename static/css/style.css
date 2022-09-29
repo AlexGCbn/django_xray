@@ -6,45 +6,89 @@ nav {
     height: 100%;
 }
 
+h1, h2 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
 .ci-orange {
     color:  #E84610;
 }
 
+.card-header-tabs .nav-link {
+    color:rgba(41, 35, 35, 0.8);
+}
+
+.code-row {
+    text-align: start;
+}
+
+.code-block {
+    background-color: rgba(41, 35, 35, 0.8);
+    color:antiquewhite;
+    text-align: start;
+    padding: 2vmin;
+    border: solid 1px rgba(66, 58, 47, 0.9);
+    border-radius: .8vmin;
+}
+
 .subtopic-link-wrapper {
     max-width: 100%;
+    top: 30vh;
+}
+
+#subtopic-container img {
+    border: 1px solid rgba(66, 58, 47, 0.9);
+    border-radius: .8vmin;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+#subtopic-container img.zoomed {
+    transform: scale(1.2) translateX(-10vmin);
+}
+
+.topic-card p,
+.subtopic-p p,
+.topic-card li {
+    text-align: start;
 }
 
 .subtopic-link {
+    background-color: hsla(205, 22%, 65%, 0.189);
     font-size: .8rem;
     position: relative;
     text-decoration: none;
     padding: .6vmin;
     color:rgba(66, 58, 47, 0.9);
-    border: 2px solid rgba(66, 58, 47, 0.9);
+    border: 2px solid transparent;
     border-radius: .8vmin;
     transition: all .3s ease-in-out;
     cursor: pointer;
+    box-shadow: -1px -1px 2px hsla(205, 22%, 65%, 0.139),
+    1px 1px 2px hsla(206, 23%, 18%, 0.139),
+    -1px -1px 2px hsla(205, 22%, 65%, 0.139),
+    1px 1px 2px hsla(206, 23%, 18%, 0.139);
 }
 
 .subtopic-link.active {
-    background-color: rgba(255, 228, 196, 1);
-    border-left: 2px solid rgba(66, 58, 47, 0.9);
-    border-top: 2px solid rgba(66, 58, 47, 0.9);
-    border-right: 2px solid rgba(66, 58, 47, 0.9);
-    border-top-left-radius: .8vmin;
-    border-bottom-left-radius: .8vmin;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    transform: translateX(18.4vmin);
-}
-
-h1, h2 {
-    text-align: center;
+    background-color: transparent;
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-bottom: 2px solid rgba(66, 58, 47, 0.9);
+    border-radius: .8vmin;
+    transform: translateX(5vmin);
+    box-shadow: none;
 }
 
 .subtopic-header {
-    padding: 1.4vmin;
-    border: 1px solid rgba(66, 58, 47, 0.9);
+    padding: .4vmin;
+    border-bottom: 1px solid rgba(66, 58, 47, 0.9);
     border-radius: .8vmin;
     transition: all .6s ease-in-out;
 }
@@ -60,11 +104,15 @@ h1, h2 {
 }
 
 .topic-card {
-    background-color: rgba(255, 228, 196, 1);
+    background-color: hsla(205, 22%, 65%, 0.189);
     padding: 2.4vmin;
     margin: 2vmin 0 2vmin 0;
-    border: 2px solid rgba(66, 58, 47, 0.9);
+    border: 2px solid transparent;
     border-radius: .8vmin;
+    box-shadow: -1px -1px 2px hsla(205, 22%, 65%, 0.439),
+    1px 1px 2px hsla(206, 23%, 18%, 0.439),
+    -1px -1px 2px hsla(205, 22%, 65%, 0.439),
+    1px 1px 2px hsla(206, 23%, 18%, 0.439);
 }
 
 .topic-card p {
@@ -87,43 +135,50 @@ h1, h2 {
         width: 25vw;
     }
 
-    .card-footer {
-        margin-bottom: 110px;
+    .topic-card p {
+        max-width: 45vw;
     }
 
-    .subtopic-link.active {
-        z-index: 1;
-        padding-right: 40px;
+    .subtopic-link-wrapper {
+        top: 23vh;
+    }
+/* 
+    .card-footer {
+        margin-bottom: 110px;
+    } */
+
+    /* .subtopic-link.active {
+        z-index: 2;
         border-right: 2px solid transparent;
     }
     
     .subtopic-link.active.connected::before {
         z-index: 1;
         content: '';
-        height: 20px;
+        height: .8vmin;
         width: 2vmin;
         position: absolute;
-        right: 4px;
-        top: -20px;
+        right: -3px;
+        top: -.8vmin;
         background-color: transparent;
         border-right: 2px solid rgba(66, 58, 47, 0.9);
         border-bottom: 2px solid rgba(66, 58, 47, 0.9);
         border-bottom-right-radius: .8vmin;
-        box-shadow: 3.5px 3.5px 0 3.5px rgba(255, 228, 196, 1);
+        box-shadow: .5px .5px 0 .5px rgba(255, 228, 196, 1);
     }
 
     .subtopic-link.active.connected::after {
         z-index: 1;
         content: '';
-        height: 20px;
+        height: .8vmin;
         width: 2vmin;
         position: absolute;
-        right: 4px;
-        bottom: -20px;
+        right: -3px;
+        bottom: -.8vmin;
         background-color: transparent;
         border-right: 2px solid rgba(66, 58, 47, 0.9);
         border-top: 2px solid rgba(66, 58, 47, 0.9);
         border-top-right-radius: .8vmin;
-        box-shadow: 3.5px -3.5px 0 3.5px rgba(255, 228, 196, 1);
-    }
+        box-shadow: .5px -.5px 0 .5px rgba(255, 228, 196, 1);
+    } */
 }

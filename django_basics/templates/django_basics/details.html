@@ -3,23 +3,23 @@
 {% block basics_details_content %}
 
 <div class="container">
-    <div class="code-row bg-dark text-light p-2">
+    <div class="code-row p-2 d-none d-md-block">
         <h4>Context code in view:</h4>
-        <p>
+        <p class="code-block">
           context = {
             'topic': topic,
             'subtopics': subtopics
           }
         </p>
         <h4>Context received from view:</h4>
-        <p>
+        <p class="code-block">
           'topic': {{ topic }}
         </p>
-        <p>
+        <p class="code-block">
           'subtopics': {{ subtopics }}
         </p>
         <hr>
-        <h4>Row code:</h4>
+        <h4>Raw code:</h4>
         <pre>
           <code>
         &lcub;&percnt;&#x20;&#x66;&#x6F;&#x72;&#x20;&#x74;&#x6F;&#x70;&#x69;&#x63;&#x20;&#x69;&#x6E;&#x20;&#x73;&#x75;&#x62;&#x74;&#x6F;&#x70;&#x69;&#x63;&#x73;&#x20;&percnt;&rcub;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;&#x64;&#x69;&#x76;&#x20;&#x63;&#x6C;&#x61;&#x73;&#x73;&equals;&quot;&#x74;&#x6F;&#x70;&#x69;&#x63;&#x2D;&#x63;&#x61;&#x72;&#x64;&#x20;&#x64;&#x2D;&#x66;&#x6C;&#x65;&#x78;&#x20;&#x66;&#x6C;&#x65;&#x78;&#x2D;&#x63;&#x6F;&#x6C;&#x75;&#x6D;&#x6E;&#x20;&#x6A;&#x75;&#x73;&#x74;&#x69;&#x66;&#x79;&#x2D;&#x63;&#x6F;&#x6E;&#x74;&#x65;&#x6E;&#x74;&#x2D;&#x63;&#x65;&#x6E;&#x74;&#x65;&#x72;&#x20;&#x61;&#x6C;&#x69;&#x67;&#x6E;&#x2D;&#x69;&#x74;&#x65;&#x6D;&#x73;&#x2D;&#x63;&#x65;&#x6E;&#x74;&#x65;&#x72;&quot;&gt;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;&#x68;&#x32;&gt;&lcub;&lcub;&#x20;&#x74;&#x6F;&#x70;&#x69;&#x63;&period;&#x68;&#x65;&#x61;&#x64;&#x69;&#x6E;&#x67;&#x20;&rcub;&rcub;&lt;&sol;&#x68;&#x32;&gt;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;&#x70;&gt;&lcub;&lcub;&#x20;&#x74;&#x6F;&#x70;&#x69;&#x63;&period;&#x70;&#x61;&#x72;&#x61;&#x67;&#x72;&#x61;&#x70;&#x68;&#x20;&vert;&#x20;&#x73;&#x61;&#x66;&#x65;&#x20;&rcub;&rcub;&lt;&sol;&#x70;&gt;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lcub;&percnt;&#x20;&#x69;&#x66;&#x20;&quot;&#x70;&#x6C;&#x61;&#x63;&#x65;&#x68;&#x6F;&#x6C;&#x64;&#x65;&#x72;&quot;&#x20;&#x69;&#x6E;&#x20;&#x74;&#x6F;&#x70;&#x69;&#x63;&period;&#x69;&#x6D;&#x61;&#x67;&#x65;&period;&#x75;&#x72;&#x6C;&#x20;&percnt;&rcub;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;&#x69;&#x6D;&#x67;&#x20;&#x73;&#x72;&#x63;&equals;&quot;&#x68;&#x74;&#x74;&#x70;&#x73;&colon;&sol;&sol;&#x63;&#x6F;&#x64;&#x65;&#x69;&#x6E;&#x73;&#x74;&#x69;&#x74;&#x75;&#x74;&#x65;&period;&#x73;&#x33;&period;&#x61;&#x6D;&#x61;&#x7A;&#x6F;&#x6E;&#x61;&#x77;&#x73;&period;&#x63;&#x6F;&#x6D;&sol;&#x66;&#x75;&#x6C;&#x6C;&#x73;&#x74;&#x61;&#x63;&#x6B;&sol;&#x62;&#x6C;&#x6F;&#x67;&sol;&#x64;&#x65;&#x66;&#x61;&#x75;&#x6C;&#x74;&period;&#x6A;&#x70;&#x67;&quot;&#x20;&#x68;&#x65;&#x69;&#x67;&#x68;&#x74;&equals;&quot;&#x34;&#x30;&#x30;&quot;&#x20;&#x77;&#x69;&#x64;&#x74;&#x68;&equals;&quot;&#x34;&#x30;&#x30;&quot;&gt;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lcub;&percnt;&#x20;&#x65;&#x6C;&#x73;&#x65;&#x20;&percnt;&rcub;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;&#x69;&#x6D;&#x67;&#x20;&#x73;&#x72;&#x63;&equals;&quot;&#x20;&lcub;&lcub;&#x20;&#x74;&#x6F;&#x70;&#x69;&#x63;&period;&#x69;&#x6D;&#x61;&#x67;&#x65;&period;&#x75;&#x72;&#x6C;&#x20;&rcub;&rcub;&quot;&#x20;&#x68;&#x65;&#x69;&#x67;&#x68;&#x74;&equals;&quot;&#x34;&#x30;&#x30;&quot;&#x20;&#x77;&#x69;&#x64;&#x74;&#x68;&equals;&quot;&#x34;&#x30;&#x30;&quot;&gt;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lcub;&percnt;&#x20;&#x65;&#x6E;&#x64;&#x69;&#x66;&#x20;&percnt;&rcub;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lt;&sol;&#x64;&#x69;&#x76;&gt;&NewLine;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&lcub;&percnt;&#x20;&#x65;&#x6E;&#x64;&#x66;&#x6F;&#x72;&#x20;&percnt;&rcub;
@@ -32,21 +32,42 @@
         </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div id="subtopic-container" class="col">
         {% for subtopic in subtopics %}
-        <div class="topic-card d-flex flex-column justify-content-center align-items-center">
+        <div class="topic-card d-flex flex-column justify-content-center align-items-center"  data-card="{{ subtopic.heading|lower }}">
+          <!-- SHOW EDIT BUTTON -->
           {% if request.user.is_authenticated %} 
             {% if request.user.is_superuser %}
             <a href="{% url 'edit_subtopic' subtopic.id topic.slug %}" class="btn btn-warning edit-btn align-self-end" title="edit subtopic"><i class="fa-solid fa-pen-to-square"></i></a>
             {% endif %}
           {% endif %}
-          <h2 id="{{ subtopic.heading|lower }}" class="subtopic-header">{{ subtopic.heading }}</h2>
-          <p>{{ subtopic.paragraph | safe }}</p>
+          
           {% if subtopic.image %}
-            {% if not "placeholder" in subtopic.image.url %}
-            <img class="img-fluid" src=" {{ subtopic.image.url }}">
-            {% endif %}
+          <!-- DISPLAY IN 2 COLUMNS -->
+            <div class="row">
+              <div class="col-12 col-md-4 pl-2">
+                <h2 id="{{ subtopic.heading|lower }}" class="subtopic-header">{{ subtopic.heading }}</h2>
+                <p class="subtopic-p">{{ subtopic.paragraph | safe }}</p>
+              </div>
+              <div class="col-12 col-md-7">
+                {% if not "placeholder" in subtopic.image.url %}
+                <img class="img-fluid" src=" {{ subtopic.image.url }}" alt="{{ subtopic.heading|lower }} visualization">
+                {% else %}
+                <img class="img-fluid" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" height="400" width="400" alt="placeholder image">
+                {% endif %}
+              </div>
+            </div>
+            {% else %}
+            <!-- DISPLAY IN ONE COLUMN -->
+            <h2 id="{{ subtopic.heading|lower }}" class="subtopic-header">{{ subtopic.heading }}</h2>
+            <p class="subtopic-p">{{ subtopic.paragraph | safe }}</p>
           {% endif %}
+          <!-- BACK TO TOP IF SUBTOPIC IS LAST ONE -->
+          {% if subtopic.order_no == subtopics.all|length %}
+            <span class="mt-3"><a href="#brand-nav"><i class="fa-solid fa-square-caret-up ci-orange"></i></span>
+            <span class="ci-orange">Back to top</span>
+          {% endif %}
+
         </div>
         {% endfor %}
       </div>
